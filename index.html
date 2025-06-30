@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Estimativa de Três Pontos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Estimativa de Três Pontos</h1>
+
+        <div class="input-group">
+            <label for="otimista">Estimativa Otimista (o):</label>
+            <input type="number" id="otimista" placeholder="Ex: 6">
+        </div>
+
+        <div class="input-group">
+            <label for="provavel">Estimativa Mais Provável (m):</label>
+            <input type="number" id="provavel" placeholder="Ex: 9">
+        </div>
+
+        <div class="input-group">
+            <label for="pessimista">Estimativa Pessimista (p):</label>
+            <input type="number" id="pessimista" placeholder="Ex: 18">
+        </div>
+
+        <div class="input-group">
+            <label for="casosTeste">Quantidade de Casos de Teste (Opcional):</label>
+            <input type="number" id="casosTeste" placeholder="Ex: 10">
+        </div>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div class="results">
+            <h2>Resultados:</h2>
+            <p>Estimativa Final (E): <span id="resultadoE"></span></p>
+            <p>Desvio Padrão (SD): <span id="resultadoSD"></span></p>
+            <p>Estimativa Total: <span id="resultadoTotal"></span></p> <!-- (E * Casos de Teste) -->
+            <p>Desvio Padrão Total: <span id="desvioTotal"></span></p> <!-- (SD * √quantidade_casos_de_teste) -->
+        </div>
+
+        <div class="info">
+            <h3>Sobre a Estimativa de Três Pontos:</h3>
+            <p>Nessa técnica baseada em especialistas, três estimativas são feitas pelos especialistas: a estimativa mais otimista (o), a estimativa mais provável (m) e a estimativa mais pessimista (p). A estimativa final (E) é a média aritmética ponderada dessas estimativas. Na versão mais popular dessa técnica, a estimativa é calculada como:</p>
+            <p class="formula">E = (o + 4m + p) / 6</p>
+            <p>A vantagem dessa técnica é que ela permite que os especialistas calculem o erro de medição:</p>
+            <p class="formula">SD = (p - o) / 6</p>
+            <p>Por exemplo, se as estimativas (em homens/hora) forem: o=6, m=9 e p=18, então a estimativa final é de 10±2 homens/hora (ou seja, entre 8 e 12 homens/hora).</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
